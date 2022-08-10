@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+
+{% block main %}
+    <div>
+        {% if colors %}
+            <h1>Your colors</h1>
+            <p class="lead">The result of analyzing your image</p>
+            <div class="color-wrapper">
+                {% for key, value in colors.items %}
+                    <div class="color m-5 d-flex align-items-center">
+                        <div class="color-ico me-3" style="background-color: {{ key }}">
+                            <p>{{ key }}</p>
+                        </div>
+                        <span>{{ value }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+            <p class="lead">
+                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">Upload new image</a>
+            </p>
+        {% else %}
+            <h1>What a dominant HEX image.</h1>
+            <p class="lead">Sorry, you haven't selected any colors, please try again.</p>
+            <p class="lead">
+                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">Upload image</a>
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}
